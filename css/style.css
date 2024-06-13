@@ -2870,3 +2870,15 @@ strong {
     padding: 10px 20px;
     font-size: 16px;
 }
+
+.blur-image {
+    filter: blur(7px);
+    /* Initial blur amount */
+    transition: filter 0.3s;
+    /* Smooth transition for the blur effect */
+}
+
+.blur-image:hover {
+    filter: blur(0);
+    /* Remove blur on hover */
+}
