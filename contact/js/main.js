@@ -175,3 +175,35 @@ $(document).ready(function() {
         $(this).toggleClass("blur-image"); // Toggle the blur class on click
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("ajax-form");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var name = document.getElementById("name").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var message = document.getElementById("message").value.trim();
+
+        if (name === "" || email === "" || message === "") {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        // If all validations pass, submit the form
+        form.submit();
+
+        // Redirect to /thankyou
+        window.location.href = "https://mohammedomer.vip/thankyou/";
+    });
+
+    function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+});
