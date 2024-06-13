@@ -6,6 +6,19 @@
 }
 
 
+/* Disable text selection for the entire document */
+
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE 10+ */
+}
+
+
 /* ======================================
 *       TABLE OF CONTENT
 *----------------------------------------

@@ -175,3 +175,33 @@ $(document).ready(function() {
         $(this).toggleClass("blur-image"); // Toggle the blur class on click
     });
 });
+// Disable right-click and long-press context menu on images
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+
+// Disable dragging of images
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+// Disable right-click and long-press context menu on images and videos
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+        e.preventDefault();
+    }
+});
+
+// Disable dragging of images and videos
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+        e.preventDefault();
+    }
+});
+// Disable right-click and inspect element
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});

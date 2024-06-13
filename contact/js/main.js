@@ -175,35 +175,33 @@ $(document).ready(function() {
         $(this).toggleClass("blur-image"); // Toggle the blur class on click
     });
 });
-document.addEventListener("DOMContentLoaded", function() {
-    var form = document.getElementById("ajax-form");
-
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        var name = document.getElementById("name").value.trim();
-        var email = document.getElementById("email").value.trim();
-        var message = document.getElementById("message").value.trim();
-
-        if (name === "" || email === "" || message === "") {
-            alert("Please fill in all fields.");
-            return;
-        }
-
-        if (!isValidEmail(email)) {
-            alert("Please enter a valid email address.");
-            return;
-        }
-
-        // If all validations pass, submit the form
-        form.submit();
-
-        // Redirect to /thankyou
-        window.location.href = "https://mohammedomer.vip/thankyou/";
-    });
-
-    function isValidEmail(email) {
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+// Disable right-click and long-press context menu on images
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
     }
+});
+
+// Disable dragging of images
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+// Disable right-click and long-press context menu on images and videos
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+        e.preventDefault();
+    }
+});
+
+// Disable dragging of images and videos
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+        e.preventDefault();
+    }
+});
+// Disable right-click and inspect element
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
 });

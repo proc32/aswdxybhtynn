@@ -8,6 +8,19 @@
     background: #ffffff;
 }
 
+
+/* Disable text selection for the entire document */
+
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE 10+ */
+}
+
 .dark-mode .popup-menu-wrap,
 .dark-mode .theme-btn::before,
 .dark-mode {

@@ -6,6 +6,17 @@
 }
 
 
+/* Disable text selection for the entire document */
+
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE 10+ */
+}
 
 @media (max-width: 1439px) {
     .popup-menu ul li a {
@@ -41,7 +52,7 @@
         align-items: center;
         text-align: center;
     }
-    .featured-work-sec  .section-header .right {
+    .featured-work-sec .section-header .right {
         display: none;
     }
     .featured-card .img-box {
@@ -65,7 +76,7 @@
     .experience-lists {
         grid-template-columns: repeat(1, 1fr);
     }
-    .favourite-stack-sec .custom-row, 
+    .favourite-stack-sec .custom-row,
     .experience2-sec .custom-row,
     .motivation-sec .custom-row {
         gap: 74px;
@@ -81,8 +92,8 @@
     .motivation-sec .motivation-content {
         max-width: 100%;
     }
-    .favourite-stack-sec .left h3, 
-    .experience2-sec .left h3, 
+    .favourite-stack-sec .left h3,
+    .experience2-sec .left h3,
     .motivation-sec .left h3 {
         font-size: 30px;
         letter-spacing: -0.8px;
@@ -144,7 +155,7 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    .work-detail-header-infos  {
+    .work-detail-header-infos {
         gap: 74px;
     }
     .work-detail-header-infos .work-detail-header-left p {
@@ -172,9 +183,7 @@
     .work-detail-text-anim-wrap {
         padding-bottom: 0;
     }
-
 }
-
 
 @media (max-width: 809px) {
     main.bronx-main {
@@ -299,11 +308,15 @@
     .about-bottom-content-wrap .about-bottom-content h4 br {
         display: block;
     }
-    .favourite-stack-sec .custom-row, .experience2-sec .custom-row, .motivation-sec .custom-row {
+    .favourite-stack-sec .custom-row,
+    .experience2-sec .custom-row,
+    .motivation-sec .custom-row {
         flex-direction: column;
         gap: 60px;
     }
-    .favourite-stack-sec .left h3, .experience2-sec .left h3, .motivation-sec .left h3 {
+    .favourite-stack-sec .left h3,
+    .experience2-sec .left h3,
+    .motivation-sec .left h3 {
         font-size: 40px;
         letter-spacing: -0.8px;
         line-height: 40px;
@@ -390,7 +403,6 @@
     }
     .work-page .featured-work-lists {
         padding: 0 20px;
-
     }
     .work-page .footer-area {
         padding-top: 50px;
@@ -472,8 +484,6 @@
         padding-left: 20px;
         padding-right: 20px;
     }
-
-
     .landing-page .header-wrap .header-local-time-box .logo span {
         display: block;
     }
