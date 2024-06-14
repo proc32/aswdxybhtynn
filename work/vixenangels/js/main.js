@@ -172,9 +172,25 @@ function initializeScrollAnimations() {
 }
 $(document).ready(function() {
     $(".blur-image").on("click", function() {
-        $(this).toggleClass("blur-image"); // Toggle the blur class on click
+        $(".blur-image").not(this).addClass("blur"); // Add blur class to all images except the clicked one
+        $(this).toggleClass("blur-image"); // Toggle the blur-image class on the clicked image
+    });
+
+    $(".blur-image").on("mouseenter", function() {
+        $(this).addClass("hovered"); // Add a class to control hover effect
+    }).on("mouseleave", function() {
+        $(this).removeClass("hovered"); // Remove the class on mouse leave
+    });
+
+    $(document).on("click touchstart", function(e) {
+        if (!$(e.target).closest(".blur-image").length) {
+            $(".blur-image").addClass("blur"); // Add the blur class back to all images
+            $(".blur-image").removeClass("blur-image"); // Remove the blur-image class from all images
+        }
     });
 });
+
+
 // Disable right-click and long-press context menu on images
 document.addEventListener('contextmenu', function(e) {
     if (e.target.tagName === 'IMG') {

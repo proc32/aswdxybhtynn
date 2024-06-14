@@ -6,6 +6,53 @@
 }
 
 
+/* Default to hide the cursor on all devices */
+
+#magic-cursor,
+#ball {
+    display: none;
+}
+
+
+/* Show the cursor only on desktop devices */
+
+@media (min-width: 1024px) {
+    /* ===== # Magic Cursor ===== */
+    #magic-cursor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        pointer-events: none;
+        z-index: 10000;
+        -webkit-transition: opacity 0.2s ease-in-out 0.5s;
+        transition: opacity 0.2s ease-in-out 0.5s;
+        display: block;
+        /* Ensure it is displayed on desktop */
+    }
+    #ball {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border: 2px solid #999999;
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: -20px;
+        margin-top: -20px;
+    }
+    #ball.hovered {
+        transition: opacity .3s;
+        opacity: 0 !important;
+    }
+}
+
+
 /* Disable text selection for the entire document */
 
 body {
@@ -2885,13 +2932,18 @@ strong {
 }
 
 .blur-image {
-    filter: blur(7px);
-    /* Initial blur amount */
-    transition: filter 0.3s;
-    /* Smooth transition for the blur effect */
+    filter: blur(7px) saturate(110%);
+    /* Initial blur and saturation amount */
+    transition: filter 1s ease;
+    /* Smooth transition for blur effect */
 }
 
-.blur-image:hover {
-    filter: blur(0);
+.blur-image.hovered {
+    filter: none;
     /* Remove blur on hover */
+}
+
+.blur-image.blur {
+    filter: blur(7px) saturate(110%);
+    /* Add blur on click away */
 }
