@@ -31,7 +31,8 @@ RewriteCond %{HTTP_USER_AGENT} rogerbot [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} Xenu [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} SEOkicks-Robot [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} Mediapartners-Google [NC,OR]
-RewriteCond %{HTTP_USER_AGENT} Adsbot-Google [NC]
+RewriteCond %{HTTP_USER_AGENT} Adsbot-Google [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} saveweb2zip [NC]  # Added saveweb2zip
 RewriteRule .* - [F,L]
 
 # Block empty user agents
@@ -57,14 +58,16 @@ RewriteRule \.(jpg|jpeg|png|gif|bmp|webp|css|js)$ - [NC,F,L]
 <Directory "/private">
     AuthType Basic
     AuthName "Restricted Area"
-    AuthUserFile mohammedomer.vip/.htpasswd
+    AuthUserFile /path/to/.htpasswd
     Require valid-user
 </Directory>
 
 # Content Security Policy (CSP)
-Header set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self';"
+<IfModule mod_headers.c>
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self';"
+</IfModule>
 
-# Disable right-click and inspect element
+# Disable right-click and inspect element (note: this doesn't provide full protection)
 <IfModule mod_headers.c>
     Header set Content-Security-Policy "script-src 'self';"
 </IfModule>

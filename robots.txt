@@ -85,3 +85,5 @@ User-agent: Mediapartners-Google
 Disallow: /
 User-agent: Adsbot-Google
 Disallow: /
+User-agent: saveweb2zip
+Disallow: /
