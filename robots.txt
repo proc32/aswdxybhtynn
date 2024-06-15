@@ -1,8 +1,6 @@
-# Block all robots from the entire website
 User-agent: *
 Disallow: /
 
-# Block specific folders
 Disallow: /about/
 Disallow: /pricing/
 Disallow: /contact/
@@ -10,7 +8,6 @@ Disallow: /work/
 Disallow: /css/
 Disallow: /js/
 
-# Block specific files
 Disallow: /css/dark-mode.css
 Disallow: /css/responsive.css
 Disallow: /css/styles.css
@@ -22,7 +19,6 @@ Disallow: /js/ScrollTrigger.min.js
 Disallow: /js/Splittext.min.js
 Disallow: /js/themescroll.js
 
-# Block popular site cloners and web scraping tools
 User-agent: HTTrack
 Disallow: /
 User-agent: SiteSucker
