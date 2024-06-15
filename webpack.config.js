@@ -1,11 +1,10 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'development',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: 'bundle.js'
     },
     module: {
         rules: [{
@@ -13,7 +12,10 @@ module.exports = {
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
-            },
-        }, ],
-    },
+                options: {
+                    presets: ['@babel/preset-env']
+                }
+            }
+        }]
+    }
 };
