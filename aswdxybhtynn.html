@@ -11,11 +11,14 @@
     <link rel="stylesheet" href="css/line-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dark-mode.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <script src="contentLoader.js" defer></script>
 </head>
 
 
@@ -1453,6 +1456,16 @@
     <script src="js/main.js"></script>
     <script src="js/themescroll.js"></script>
 
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.key == 'F12' || (e.ctrlKey && e.shiftKey && e.key == 'I'.charCodeAt(0)) ||
+                (e.ctrlKey && e.shiftKey && e.key == 'J'.charCodeAt(0)) ||
+                (e.ctrlKey && e.key == 'U'.charCodeAt(0))) {
+                return false;
+            }
+        };
+    </script>
 
 
 
