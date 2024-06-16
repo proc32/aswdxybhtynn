@@ -26,11 +26,10 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --global user.email "mdomer19967@gmail.com"
           git config --global user.name "proc32"
-          export GH_TOKEN="${GH_TOKEN}"
           git clone --branch gh-pages https://github.com/proc32/aswdxybhtynn.git public-repo
           rsync -av --delete build/ public-repo/
           cd public-repo
