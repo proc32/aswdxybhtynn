@@ -171,16 +171,24 @@ function initializeScrollAnimations() {
     });
 }
 $(document).ready(function() {
-    $(".blur-image").on("click", function() {
-        $(".blur-image").not(this).addClass("blur"); // Add blur class to all images except the clicked one
-        $(this).toggleClass("blur-image"); // Toggle the blur-image class on the clicked image
-    });
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    $(".blur-image").on("mouseenter", function() {
-        $(this).addClass("hovered"); // Add a class to control hover effect
-    }).on("mouseleave", function() {
-        $(this).removeClass("hovered"); // Remove the class on mouse leave
-    });
+    if (isMobile) {
+        $(".blur-image").on("click", function() {
+            $(this).addClass("blur"); // Add blur class on click
+        });
+    } else {
+        $(".blur-image").on("click", function() {
+            $(".blur-image").not(this).addClass("blur"); // Add blur class to all images except the clicked one
+            $(this).toggleClass("blur-image"); // Toggle the blur-image class on the clicked image
+        });
+
+        $(".blur-image").on("mouseenter", function() {
+            $(this).addClass("hovered"); // Add a class to control hover effect
+        }).on("mouseleave", function() {
+            $(this).removeClass("hovered"); // Remove the class on mouse leave
+        });
+    }
 
     $(document).on("click touchstart", function(e) {
         if (!$(e.target).closest(".blur-image").length) {
@@ -189,6 +197,7 @@ $(document).ready(function() {
         }
     });
 });
+
 
 
 // Disable right-click and long-press context menu on images

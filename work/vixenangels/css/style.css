@@ -2944,6 +2944,6 @@ strong {
 }
 
 .blur-image.blur {
-    filter: blur(7px) saturate(110%);
-    /* Add blur on click away */
+    filter: none;
+    /* Remove blur on click */
 }
