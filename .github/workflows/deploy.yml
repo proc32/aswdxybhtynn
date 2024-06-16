@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site
+        run: |
+          npm run build
+          ls -l # List files in the current directory to verify the 'build' directory is present
+
+      - name: Deploy to GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.email "mdomer19967@gmail.com"
+          git config --global user.name "proc32"
+          git clone --branch gh-pages https://github.com/proc32/aswdxybhtynn.git public-repo
+          mkdir -p public-repo/build # Ensure 'build' directory exists in the clone
+          rsync -av --delete build/ public-repo/build/
+          cd public-repo
+          git add .
+          git commit -m "Deploy site"
+          git push origin gh-pages
