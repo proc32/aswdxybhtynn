@@ -138,7 +138,7 @@
 
                                 <li><a href=https://instagram.com/_mromer_ target=_blank>Instagram</a></li>
 
-                                <li><a href=mailto:info@mohammedomer.vip target=_blank>Mail <svg color="rgb(29, 29, 31)" viewBox="0 0 24 24" xmlns=http://www.w3.org/2000/svg focusable=false><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"></path></svg></a></li>
+                                <li><a href=mailto:info@mohammedomer.vip target=_blank>Mail</a></li>
 
                             </ul>
                         </div>
@@ -189,19 +189,33 @@
     <script src=js/themescroll.js></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var d = document.getElementById("ajax-form"),
-                m = document.getElementById("result");
-            d.addEventListener("submit", function(e) {
-                e.preventDefault();
-                var t = document.getElementById("name").value.trim(),
-                    n = document.getElementById("email").value.trim(),
-                    a = document.getElementById("message").value.trim();
-                "" !== t && "" !== n && "" !== a ? ! function(e) {
-                    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)
-                }(n) ? m.innerText = "Please enter a valid email address." : d.submit() : m.innerText = "Please fill in all fields."
-            })
-        })
+            var form = document.getElementById("ajax-form");
+            var result = document.getElementById("result");
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                var name = document.getElementById("name").value.trim();
+                var email = document.getElementById("email").value.trim();
+                var message = document.getElementById("message").value.trim();
+
+                if (name !== "" && email !== "" && message !== "") {
+                    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                        // Change the form action URL before submitting
+                        form.action = "/thankyou";
+                        form.submit();
+                    } else {
+                        result.innerText = "Please enter a valid email address.";
+                    }
+                } else {
+                    result.innerText = "Please fill in all fields.";
+                }
+            });
+        });
     </script>
+
+
+
+
 </body>
 
 </html>
