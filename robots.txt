@@ -8,6 +8,9 @@ Disallow: /work/
 Disallow: /css/
 Disallow: /js/
 
+User-agent: saveweb2zip
+Disallow: /
+
 Disallow: /css/dark-mode.css
 Disallow: /css/responsive.css
 Disallow: /css/styles.css
