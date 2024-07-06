@@ -7,7 +7,7 @@
     "devDependencies": {
         "@babel/core": "^7.16.5",
         "@babel/preset-env": "^7.16.5",
-        "axios": "^0.24.0",
+        "axios": "^1.7.2",
         "babel-loader": "^8.2.3",
         "eslint": "^9.5.0",
         "jest": "^27.4.7",
@@ -16,7 +16,7 @@
         "prettier": "3.3.2",
         "sass": "^1.77.5",
         "typescript": "^5.4.5",
-        "webpack": "^5.92.0",
+        "webpack": "^5.92.1",
         "webpack-cli": "^4.10.0"
     },
     "dependencies": {
