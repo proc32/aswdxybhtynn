@@ -1,6 +1,5 @@
 RewriteEngine On
 
-# Block specific user agents
 RewriteCond %{HTTP_USER_AGENT} HTTrack [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} SiteSucker [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} WebCopier [NC,OR]
@@ -32,14 +31,12 @@ RewriteCond %{HTTP_USER_AGENT} Xenu [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} SEOkicks-Robot [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} Mediapartners-Google [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} Adsbot-Google [NC,OR]
-RewriteCond %{HTTP_USER_AGENT} saveweb2zip [NC]  # Added saveweb2zip
+RewriteCond %{HTTP_USER_AGENT} saveweb2zip [NC]  
 RewriteRule .* - [F,L]
 
-# Block empty user agents
 RewriteCond %{HTTP_USER_AGENT} ^-?$
 RewriteRule .* - [F,L]
 
-# Rate limiting (adjust values as needed)
 <IfModule mod_ratelimit.c>
     SetEnvIf User-Agent ".*" RATE_LIMIT
     <Location />
@@ -48,13 +45,10 @@ RewriteRule .* - [F,L]
         SetEnv rate-initial-burst 10
     </Location>
 </IfModule>
-
-# Prevent hotlinking
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !^https?://(www\.)?mohammedomer\.vip [NC]
 RewriteRule \.(jpg|jpeg|png|gif|bmp|webp|css|js)$ - [NC,F,L]
 
-# Password protect sensitive directories (example for a directory)
 <Directory "/private">
     AuthType Basic
     AuthName "Restricted Area"
@@ -62,23 +56,19 @@ RewriteRule \.(jpg|jpeg|png|gif|bmp|webp|css|js)$ - [NC,F,L]
     Require valid-user
 </Directory>
 
-# Content Security Policy (CSP)
 <IfModule mod_headers.c>
     Header set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self';"
 </IfModule>
 
-# Disable right-click and inspect element (note: this doesn't provide full protection)
 <IfModule mod_headers.c>
     Header set Content-Security-Policy "script-src 'self';"
 </IfModule>
 
-# Block access to certain files
 <FilesMatch "\.(htaccess|htpasswd|config|ini|log|sh)$">
     Order Allow,Deny
     Deny from all
 </FilesMatch>
 
-# Prevent directory listing
 Options -Indexes
 
 
