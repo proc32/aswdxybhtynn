@@ -1615,6 +1615,28 @@ img {
     color: rgba(29, 29, 31, .7);
     max-width: 623px
 }
+/* ammu */
+.experience2-box .experience2-box-header a {
+    text-decoration: underline;
+    color: white; /* Default color: white */
+    transition: background 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.experience2-box .experience2-box-header a:hover {
+    color: #fff; /* Keep the text color white for blending */
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700); /* Bright golden gradient */
+    background-size: 200%; /* Adjust background size for shimmering effect */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text;
+    color: transparent; /* Make the text color transparent to show the gradient */
+    animation: shimmer 2s ease-in-out infinite; /* Shimmer animation */
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
 .favourite-stack-sec {
     padding: 110px 40px 0;
@@ -2687,3 +2709,73 @@ img {
 body {
     cursor: none; /* Hides the cursor */
 }
+
+
+
+/* Style for each image */
+.project-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.2) rotateY(10deg);
+    transition: transform 0.8s ease, opacity 0.8s ease, box-shadow 0.5s ease;
+}
+
+/* Initial visible image setup */
+.project-images:first-child {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+}
+
+/* Hover effect: animate images with various delays */
+.featured-card:hover .project-images:nth-child(1) {
+    opacity: 0;
+    transform: scale(1.2) rotateY(15deg);
+}
+
+.featured-card:hover .project-images:nth-child(2) {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    animation: sexyPop 1.5s ease-in-out;
+}
+
+.featured-card:hover .project-images:nth-child(3) {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    animation: sexyPop 1.5s ease-in-out 0.5s;
+}
+
+.featured-card:hover .project-images:nth-child(4) {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    animation: sexyPop 1.5s ease-in-out 1s;
+}
+
+/* Sexy pop effect for image transition */
+
+
+/* Reset the effect on mouse out */
+.featured-card:hover .project-images:nth-child(1) {
+    opacity: 0;
+    transform: scale(1.2) rotateY(10deg);
+}
+
+.featured-card:hover .project-images:nth-child(2) {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+}
+
+.featured-card:hover .project-images:nth-child(3) {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+}
+
+.featured-card:hover .project-images:nth-child(4) {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+}
+
