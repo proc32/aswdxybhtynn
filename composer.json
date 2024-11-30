@@ -1,0 +1,31 @@
+{
+    "name": "mohammedomer/complex-app",
+    "description": "Mohammed Omer's PHP-based modular application",
+    "type": "project",
+    "authors": [
+      {
+        "name": "Mohammed Omer",
+        "email": "contact@mohammedomer.vip",
+        "homepage": "https://mohammedomer.vip"
+      }
+    ],
+    "require": {
+      "laravel/framework": "^9.0",
+      "guzzlehttp/guzzle": "^7.5",
+      "phpmailer/phpmailer": "^6.8",
+      "monolog/monolog": "^2.9"
+    },
+    "scripts": {
+      "post-install-cmd": [
+        "php artisan migrate --force",
+        "php artisan optimize"
+      ],
+      "test": "phpunit --configuration phpunit.xml"
+    },
+    "autoload": {
+      "psr-4": {
+        "MohammedOmer\\App\\": "src/"
+      }
+    }
+  }
+  

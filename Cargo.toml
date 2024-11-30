@@ -1,0 +1,16 @@
+[package]
+name = "mohammedomer_vip"
+version = "0.1.0"
+authors = ["Mohammed Omer <contact@mohammedomer.vip>"]
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.28", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+warp = "0.3"
+log = "0.4"
+env_logger = "0.10"
+
+[[bin]]
+name = "mohammedomer_app"
+path = "src/main.rs"

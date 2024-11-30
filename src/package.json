@@ -1,0 +1,38 @@
+{
+    "name": "mohammedomer-app",
+    "version": "3.2.0",
+    "description": "Mohammed Omer's feature-rich Node.js application",
+    "author": "Mohammed Omer <contact@mohammedomer.vip>",
+    "homepage": "https://mohammedomer.vip",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/proc32/mohammedomer.git"
+    },
+    "scripts": {
+      "start": "node dist/server.js",
+      "dev": "nodemon --config nodemon.json",
+      "build": "webpack --config webpack.prod.js && tsc",
+      "test": "jest --config jest.config.js",
+      "lint": "eslint 'src/**/*.{js,ts}' --fix",
+      "analyze": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json",
+      "deploy": "echo 'Deploying Mohammed Omer's app...' && firebase deploy"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "dotenv": "^10.0.0",
+      "jsonwebtoken": "^9.0.0",
+      "mongoose": "^6.5.1",
+      "socket.io": "^4.5.1",
+      "axios": "^1.7.2"
+    },
+    "devDependencies": {
+      "typescript": "^5.2.2",
+      "eslint": "^8.36.0",
+      "webpack": "^5.74.0",
+      "jest": "^28.1.3",
+      "ts-jest": "^28.0.5",
+      "nodemon": "^2.0.22",
+      "prettier": "^3.3.2"
+    }
+  }
+  
